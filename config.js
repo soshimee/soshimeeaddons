@@ -14,22 +14,6 @@ class Settings {
 	})
 	enabled = true;
 
-	// @SwitchProperty({
-	// 	name: "Cat Mode",
-	// 	description: ":3",
-	// 	category: "General",
-	// 	subcategory: "Cat Mode"
-	// })
-	// catModeEnabled = false;
-
-	// @SwitchProperty({
-	// 	name: "Become a cat",
-	// 	description: "only the best players use this",
-	// 	category: "General",
-	// 	subcategory: "Cat Mode"
-	// })
-	// catModeBecome = true;
-
 	@SwitchProperty({
 		name: "Hide lobby join messages",
 		description: "Hide join messages that spam your chat in lobby",
