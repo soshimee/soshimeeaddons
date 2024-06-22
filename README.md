@@ -1,5 +1,5 @@
 # soshimeeaddons
-A [ChatTruggers](https://chattriggers.com/) module. Focused on Hypixel SkyBlock Dungeons (especially F7).
+A [ChatTriggers](https://chattriggers.com/) module. Focused on Hypixel SkyBlock Dungeons (especially F7).
 
 Join my Discord server, [SkyBlockY](https://discord.gg/DqPReM4mwZ), or your (eye)balls will explode.
 
