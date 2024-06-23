@@ -15,7 +15,7 @@ const trigger1 = global.soshimee.events.closeWindow.trigger1 ??= register("packe
 	}
 }).setFilteredClass(S2EPacketCloseWindow).unregister();
 
-const trigger2 = global.soshimee.events.closeWindow.trigger1 ??= register("packetSent", () => {
+const trigger2 = global.soshimee.events.closeWindow.trigger2 ??= register("packetSent", () => {
 	for (let listener of listeners) {
 		listener();
 	}

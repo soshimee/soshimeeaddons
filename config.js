@@ -449,6 +449,14 @@ class Settings {
 	itemHighlightColor3 = new Color(Renderer.color(255, 0, 0, 255), true);
 
 	@SwitchProperty({
+		name: "Show Terminal Clicks",
+		description: "Highlights clicked Terminals",
+		category: "SkyBlock",
+		subcategory: "Show Terminal Clicks"
+	})
+	showTerminalClicksEnabled = false;
+
+	@SwitchProperty({
 		name: "Toggle",
 		description: "Enables Termial Features\nMay not be compatible with other mods",
 		category: "Terminals"
