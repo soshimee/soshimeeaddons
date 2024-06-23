@@ -3,15 +3,19 @@
 const S2EPacketCloseWindow = Java.type("net.minecraft.network.play.server.S2EPacketCloseWindow");
 const C0DPacketCloseWindow = Java.type("net.minecraft.network.play.client.C0DPacketCloseWindow");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.closeWindow ??= {};
 
-const trigger1 = register("packetReceived", () => {
+const listeners = global.soshimee.events.closeWindow.listeners ??= [];
+
+const trigger1 = global.soshimee.events.closeWindow.trigger1 ??= register("packetReceived", () => {
 	for (let listener of listeners) {
 		listener();
 	}
 }).setFilteredClass(S2EPacketCloseWindow).unregister();
 
-const trigger2 = register("packetSent", () => {
+const trigger2 = global.soshimee.events.closeWindow.trigger1 ??= register("packetSent", () => {
 	for (let listener of listeners) {
 		listener();
 	}

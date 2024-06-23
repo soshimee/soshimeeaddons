@@ -2,9 +2,13 @@
 
 const C03PacketPlayer = Java.type("net.minecraft.network.play.client.C03PacketPlayer");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.playerPosition ??= {};
 
-const trigger = register("packetSent", (packet, event) => {
+const listeners = global.soshimee.events.playerPosition.listeners ??= [];
+
+const trigger = global.soshimee.events.playerPosition.trigger ??= register("packetSent", (packet, event) => {
 	if (!packet.func_149466_j()) return;
 	const x = packet.func_149464_c();
 	const y = packet.func_149467_d();

@@ -2,9 +2,13 @@
 
 const S2FPacketSetSlot = Java.type("net.minecraft.network.play.server.S2FPacketSetSlot");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.packetSetSlot ??= {};
 
-const trigger = register("packetReceived", (packet, event) => {
+const listeners = global.soshimee.events.packetSetSlot.listeners ??= [];
+
+const trigger = global.soshimee.events.packetSetSlot.trigger ??= register("packetReceived", (packet, event) => {
 	const itemStack = packet.func_149174_e();
 	const slot = packet.func_149173_d();
 	const windowID = packet.func_149175_c();

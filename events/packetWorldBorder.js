@@ -3,9 +3,13 @@
 const S44PacketWorldBorder = Java.type("net.minecraft.network.play.server.S44PacketWorldBorder");
 const WorldBorder = Java.type("net.minecraft.world.border.WorldBorder");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.packetWorldBorder ??= {};
 
-const trigger = register("packetReceived", (packet, event) => {
+const listeners = global.soshimee.events.packetWorldBorder.listeners ??= [];
+
+const trigger = global.soshimee.events.packetWorldBorder.trigger ??= register("packetReceived", (packet, event) => {
 	const worldborder = new WorldBorder();
 	packet.func_179788_a(worldborder);
 	for (let listener of listeners) {

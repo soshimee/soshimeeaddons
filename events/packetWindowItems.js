@@ -2,9 +2,13 @@
 
 const S30PacketWindowItems = Java.type("net.minecraft.network.play.server.S30PacketWindowItems");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.packetWindowItems ??= {};
 
-const trigger = register("packetReceived", (packet, event) => {
+const listeners = global.soshimee.events.packetWindowItems.listeners ??= [];
+
+const trigger = global.soshimee.events.packetWindowItems.trigger ??= register("packetReceived", (packet, event) => {
 	const itemStacks = packet.func_148910_d();
 	const windowID = packet.func_148911_c();
 

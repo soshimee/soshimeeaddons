@@ -2,9 +2,13 @@
 
 const S32PacketConfirmTransaction = Java.type("net.minecraft.network.play.server.S32PacketConfirmTransaction");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.tick ??= {};
 
-const trigger = register("packetReceived", () => {
+const listeners = global.soshimee.events.tick.listeners ??= [];
+
+const trigger = global.soshimee.events.tick.trigger ??= register("packetReceived", () => {
 	for (let listener of listeners) {
 		listener();
 	}

@@ -2,9 +2,13 @@
 
 const S2DPacketOpenWindow = Java.type("net.minecraft.network.play.server.S2DPacketOpenWindow");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.packetOpenWindow ??= {};
 
-const trigger = register("packetReceived", (packet, event) => {
+const listeners = global.soshimee.events.packetOpenWindow.listeners ??= [];
+
+const trigger = global.soshimee.events.packetOpenWindow.trigger ??= register("packetReceived", (packet, event) => {
 	const title = ChatLib.removeFormatting(packet.func_179840_c().func_150254_d());
 	const windowId = packet.func_148901_c();
 	const hasSlots = packet.func_148900_g();

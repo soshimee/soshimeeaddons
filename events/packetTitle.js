@@ -1,8 +1,12 @@
 const S45PacketTitle = Java.type("net.minecraft.network.play.server.S45PacketTitle");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.packetTitle ??= {};
 
-const trigger = register("packetReceived", (packet, event) => {
+const listeners = global.soshimee.events.packetTitle.listeners ??= [];
+
+const trigger = global.soshimee.events.packetTitle.trigger ??= register("packetReceived", (packet, event) => {
 	const type = packet.func_179807_a().toString();
 	const message = ChatLib.removeFormatting(packet.func_179805_b()?.func_150260_c());
 	for (let listener of listeners) {

@@ -2,9 +2,13 @@
 
 const S03PacketTimeUpdate = Java.type("net.minecraft.network.play.server.S03PacketTimeUpdate");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.packetTimeUpdate ??= {};
 
-const trigger = register("packetReceived", (packet, event) => {
+const listeners = global.soshimee.events.packetTimeUpdate.listeners ??= [];
+
+const trigger = global.soshimee.events.packetTimeUpdate.trigger ??= register("packetReceived", (packet, event) => {
 	for (let listener of listeners) {
 		listener(packet, event);
 	}

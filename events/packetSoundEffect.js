@@ -2,9 +2,13 @@
 
 const S29PacketSoundEffect = Java.type("net.minecraft.network.play.server.S29PacketSoundEffect");
 
-const listeners = [];
+global.soshimee ??= {};
+global.soshimee.events ??= {};
+global.soshimee.events.packetSoundEffect ??= {};
 
-const trigger = register("packetReceived", (packet, event) => {
+const listeners = global.soshimee.events.packetSoundEffect.listeners ??= [];
+
+const trigger = global.soshimee.events.packetSoundEffect.trigger ??= register("packetReceived", (packet, event) => {
 	const name = packet.func_149212_c();
 	const volume = packet.func_149208_g();
 	const pitch = packet.func_149209_h();
