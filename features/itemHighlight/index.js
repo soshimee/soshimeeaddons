@@ -17,7 +17,7 @@ const helperTrigger = register("step", () => { // make sure to register render t
 		renderTrigger.unregister();
 		renderTriggerRegistered = false;
 	}
-}).setFps(1);
+}).setFps(1).unregister();
 
 const renderTrigger = register("renderEntity", (entity, _, partialTicks, event) => {
 	if (entity.isDead()) return;
