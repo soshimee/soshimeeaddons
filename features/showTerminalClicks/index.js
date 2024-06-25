@@ -23,7 +23,9 @@ const renderTrigger = register("renderWorld", () => {
 }).unregister();
 
 const trigger = register("packetSent", packet => {
-	const entity = new Entity(packet.func_149564_a(World.getWorld()));
+	const mcEntity = packet.func_149564_a(World.getWorld());
+	if (!mcEntity) return;
+	const entity = new Entity(mcEntity);
 	if (entity.getName() !== "§cInactive Terminal") return;
 	const time = new Date().getTime();
 	const position = [entity.getX(), entity.getY(), entity.getZ()];
