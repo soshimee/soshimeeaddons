@@ -5,17 +5,17 @@ import Dungeon from "../../../BloomCore/dungeons/Dungeon";
 const EntityItem = Java.type("net.minecraft.entity.item.EntityItem");
 
 const items = ["Health Potion VIII Splash Potion", "Healing  8 Splash Potion", "Healing VIII Splash Potion", "Decoy", "Inflatable Jerry", "Spirit Leap", "Trap", "Training Weights", "Defuse Kit", "Dungeon Chest Key", "Treasure Talisman", "Revive Stone", "Architect's First Draft"];
-let renderTriggerRegistered = false;
+let inDungeon = false;
 
 const helperTrigger = register("step", () => { // make sure to register render trigger only when needed
 	if (Dungeon.inDungeon) {
-		if (renderTriggerRegistered) return;
+		if (inDungeon) return;
 		renderTrigger.register();
-		renderTriggerRegistered = true;
+		inDungeon = true;
 	} else {
-		if (!renderTriggerRegistered) return;
+		if (!inDungeon) return;
 		renderTrigger.unregister();
-		renderTriggerRegistered = false;
+		inDungeon = false;
 	}
 }).setFps(1).unregister();
 
@@ -50,9 +50,9 @@ export function enable() {
 
 export function disable() {
 	helperTrigger.unregister();
-	if (renderTriggerRegistered) {
+	if (inDungeon) {
 		renderTrigger.unregister();
-		renderTriggerRegistered = false;
+		inDungeon = false;
 	}
 }
 

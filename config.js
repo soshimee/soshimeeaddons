@@ -394,7 +394,7 @@ class Settings {
 
 	@SwitchProperty({
 		name: "Blood Helper",
-		description: "WIP, does not work",
+		description: "Highlights where the mobs will spawn in the blood room",
 		category: "SkyBlock",
 		subcategory: "Blood Helper"
 	})
