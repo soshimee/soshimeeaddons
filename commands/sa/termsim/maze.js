@@ -20,7 +20,7 @@ export function open(ping, pattern, clicks = [], time) {
 	const gui = new PacketGui(cwid, "Navigate the maze!", 54);
 
 	if (pattern === undefined) pattern = Math.floor(Math.random() * patterns.length);
-	if (time === undefined) time = new Date().getTime();
+	if (time === undefined) time = Date.now();
 
 	const dumb = patterns[pattern];
 	const patternLeft = [...dumb];
@@ -63,7 +63,7 @@ export function open(ping, pattern, clicks = [], time) {
 				if (patternLeft.length === 0) {
 					gui.close();
 					chat.chat("Terminal complete!");
-					chat.chat("Time taken: §a" + (new Date().getTime() - time) + "§rms");
+					chat.chat("Time taken: §a" + (Date.now() - time) + "§rms");
 					open(ping);
 				} else {
 					open(ping, pattern, clicks, time);

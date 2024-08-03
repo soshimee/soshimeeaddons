@@ -14,7 +14,7 @@ export function open(ping, pattern, clicks = [], time) {
 	const gui = new PacketGui(cwid, "Click in order!", 36);
 
 	if (pattern === undefined) pattern = [...allowedSlots].map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value);
-	if (time === undefined) time = new Date().getTime();
+	if (time === undefined) time = Date.now();
 
 	const patternLeft = [...pattern];
 	clicks.forEach(slot => {
@@ -52,7 +52,7 @@ export function open(ping, pattern, clicks = [], time) {
 				if (patternLeft.length === 0) {
 					gui.close();
 					chat.chat("Terminal complete!");
-					chat.chat("Time taken: §a" + (new Date().getTime() - time) + "§rms");
+					chat.chat("Time taken: §a" + (Date.now() - time) + "§rms");
 					open(ping);
 				} else {
 					open(ping, pattern, clicks, time);

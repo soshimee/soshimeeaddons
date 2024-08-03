@@ -8,14 +8,14 @@ export function getTPS(ticks = 50) {
 
 	return new Promise((resolve, reject) => {
 		const listener = () => {
-			diffs.push(new Date().getTime() - lastTime);
+			diffs.push(Date.now() - lastTime);
 			if (diffs.length > ticks) {
 				tick.removeListener(listener);
 				diffs.shift();
 				resolve(1000 / (diffs.reduce((prev, cur) => prev + cur) / ticks));
 				done = true;
 			}
-			lastTime = new Date().getTime();
+			lastTime = Date.now();
 		};
 		tick.addListener(listener);
 

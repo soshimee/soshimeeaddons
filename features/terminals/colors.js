@@ -17,7 +17,7 @@ let openedAt = 0;
 
 const clickTrigger = register("guiMouseClick", (x, y, button, _0, event) => {
 	cancel(event);
-	if (openedAt + Settings.terminalsFirstClick > new Date().getTime()) return;
+	if (openedAt + Settings.terminalsFirstClick > Date.now()) return;
 
 	const screenWidth = Renderer.screen.getWidth();
 	const screenHeight = Renderer.screen.getHeight();
@@ -94,7 +94,7 @@ function openWindowListener(title, windowId, _0, slotCount) {
 			clickTrigger.register();
 			renderTrigger.register();
 		}
-		if (!clicked) openedAt = new Date().getTime();
+		if (!clicked) openedAt = Date.now();
 		inTerminal = true;
 		clicked = false;
 		while (slots.length) slots.pop();
