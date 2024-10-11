@@ -6,7 +6,7 @@ const highlights = {};
 let renderTriggerRegistered = false;
 
 const renderTrigger = register("renderWorld", () => {
-	const time = new Date().getTime();
+	const time = Date.now();
 	for (let highlight of Object.values(highlights)) {
 		let progress = (time - highlight.start) / (highlight.end - highlight.start);
 		let position = highlight.position;
@@ -27,7 +27,7 @@ const trigger = register("packetSent", packet => {
 	if (!mcEntity) return;
 	const entity = new Entity(mcEntity);
 	if (entity.getName() !== "§cInactive Terminal") return;
-	const time = new Date().getTime();
+	const time = Date.now();
 	const position = [entity.getX(), entity.getY(), entity.getZ()];
 	highlights[position.join()] = {
 		start: time,
