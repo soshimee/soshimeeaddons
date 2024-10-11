@@ -55,6 +55,14 @@ function reset() {
 	ws.connect();
 }
 
+function keepAlive() {
+	if (!enabled) return;
+	try {
+		ws?.send("/");
+	} catch (error) {}
+	Async.schedule(keepAlive, 10000);
+}
+
 function auth() {
 	ChatLib.chat("§8[§bIRC§8] §7Authenticating...");
 	const token = Client.getMinecraft().func_110432_I().func_148254_d();
@@ -82,6 +90,7 @@ export function enable() {
 	trigger.register();
 	unloadTrigger.register();
 	reset();
+	keepAlive();
 	ChatLib.chat("§8[§bIRC§8] §7Connecting...");
 }
 

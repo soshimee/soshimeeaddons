@@ -2,7 +2,7 @@
 	"name": "soshimeeaddons",
 	"description": "F7 on top",
 	"creator": "soshimee",
-	"version": "2.8.0",
+	"version": "2.8.1",
 	"entry": "index.js",
 	"requires": ["PromiseV2", "BloomCore", "fparser", "requestV2", "Vigilance", "PogData", "RenderLib", "WebSocket", "Async"]
 }
