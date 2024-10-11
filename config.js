@@ -15,6 +15,13 @@ class Settings {
 	enabled = true;
 
 	@SwitchProperty({
+		name: "IRC",
+		description: "IRC for meowing",
+		category: "General"
+	})
+	ircEnabled = true;
+
+	@SwitchProperty({
 		name: "Hide lobby join messages",
 		description: "Hide join messages that spam your chat in lobby",
 		category: "General",
