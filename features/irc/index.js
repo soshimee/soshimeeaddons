@@ -44,10 +44,6 @@ function reset() {
 		}
 	};
 
-	ws.onError = () => {
-		if (enabled) Async.schedule(reset, 10000);
-	}
-
 	ws.onMessage = message => {
 		Client.getMinecraft().field_71439_g.func_145747_a(new ChatComponentText("§8[§bIRC§8] §f" + message));
 	};
