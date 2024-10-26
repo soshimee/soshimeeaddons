@@ -108,7 +108,7 @@ function closeWindowListener() {
 function setSlotListener(itemStack, slot) {
 	if (slot < 0) return;
 	if (slot >= windowSize) return;
-	if (itemStack !== null) {
+	if (itemStack?.func_77973_b()) {
 		const item = new Item(itemStack);
 		slots[slot] = {
 			slot,
