@@ -69,6 +69,7 @@ const renderTrigger = register(net.minecraftforge.client.event.GuiScreenEvent.Dr
 }).unregister();
 
 function openWindowListener(title, windowId, _, slotCount) {
+	closeWindowListener();
 	if (title !== "Spirit Leap") return;
 	cwid = windowId;
 	windowSize = slotCount;
