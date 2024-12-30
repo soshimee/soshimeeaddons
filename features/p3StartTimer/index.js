@@ -16,9 +16,9 @@ function listener(message) {
 	tick.addListener(listener);
 
 	// const time = 5200;
-	// const startTime = new Date().getTime();
+	// const startTime = Date.now();
 	// const trigger = register("step", () => {
-	// 	const timeLeft = time - (new Date().getTime() - startTime);
+	// 	const timeLeft = time - (Date.now() - startTime);
 	// 	Client.showTitle(" ", "§a" + (timeLeft / 1000).toFixed(2), 0, 1000, 0);
 	// 	Client.showTitle(" ", "§a" + (timeLeft / 1000).toFixed(2), 0, 1000, 0);
 	// 	if (timeLeft <= 0) {
