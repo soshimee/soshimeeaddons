@@ -8,7 +8,8 @@ global.soshimee.events.tick ??= {};
 
 const listeners = global.soshimee.events.tick.listeners ??= [];
 
-const trigger = global.soshimee.events.tick.trigger ??= register("packetReceived", () => {
+const trigger = global.soshimee.events.tick.trigger ??= register("packetReceived", packet => {
+	if (packet.func_148890_d() >= 0) return;
 	for (let listener of listeners) {
 		listener();
 	}

@@ -12,7 +12,7 @@ import Settings from "../../config";
 
 import generateFox from "../../utils/fox";
 import generateCat from "../../utils/cat";
-import getPing from "../../utils/ping";
+import ping from "../../utils/ping";
 import getTPS from "../../utils/tps";
 
 const catacombs = {
@@ -40,7 +40,7 @@ commands.push(new Command("calc", [], (_0, _1, ...args) => {
 	ChatLib.command("party chat " + Formula.calc(args.join(" ")));
 }, 1, "partyCommandsCommandCalcEnabled", null));
 commands.push(new Command("ping", [], () => {
-	getPing().then(ping => {
+	ping.getPing().then(ping => {
 		ChatLib.command("party chat " + ping + "ms");
 	}).catch(() => {
 		ChatLib.command("party chat Ping timed out");
