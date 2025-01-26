@@ -487,6 +487,13 @@ class Settings {
 	})
 	terminalsHighPingMode = false;
 
+	@SwitchProperty({
+		name: "PhoenixClient Compatibility",
+		description: "Compatibility with PhoenixClient Zero Ping Terms",
+		category: "Terminals"
+	})
+	terminalsPhoenixClient = false;
+
 	@NumberProperty({
 		name: "Timeout",
 		description: "Timeout to resync Terminals",

@@ -41,7 +41,7 @@ const clickTrigger = register("guiMouseClick", (x, y, button, _0, event) => {
 
 	button = button === 0 ? 0 : 1;
 	if ((solution[slot] > 0 && button === 0) || (solution[slot] < 0 && button !== 0)) {
-		if (Settings.terminalsHighPingMode || !clicked) predict(slot, button);
+		if (Settings.terminalsHighPingMode || Settings.terminalsPhoenixClient || !clicked) predict(slot, button);
 		if (Settings.terminalsHighPingMode && clicked) {
 			queue.push([slot, button]);
 		} else {
