@@ -27,8 +27,9 @@ import wardrobeHelper from "./wardrobeHelper";
 import itemHighlight from "./itemHighlight";
 import padTickTimer from "./padTickTimer";
 import showTerminalClicks from "./showTerminalClicks";
+import pingDisplay from "./pingDisplay";
 
-export const features = { irc, bloodHelper, hideLobbyJoinMessages, partyInviteNotification, catSounds, mute, betterPartyFinder, melodyAlert, deathAlert, mimicRelay, sbeBloodFix, p3StartTimer, i4Helper, shadowAssassinAlert, partyFinderNote, partyFinderAutoKick, invincibilityTimer, goldorTickTimer, deathTickTimer, leapHelper, positionalMessages, rightClickAnimation, partyCommands, terminals, wardrobeHelper, itemHighlight, padTickTimer, showTerminalClicks };
+export const features = { irc, bloodHelper, hideLobbyJoinMessages, partyInviteNotification, catSounds, mute, betterPartyFinder, melodyAlert, deathAlert, mimicRelay, sbeBloodFix, p3StartTimer, i4Helper, shadowAssassinAlert, partyFinderNote, partyFinderAutoKick, invincibilityTimer, goldorTickTimer, deathTickTimer, leapHelper, positionalMessages, rightClickAnimation, partyCommands, terminals, wardrobeHelper, itemHighlight, padTickTimer, showTerminalClicks, pingDisplay };
 
 const featureState = {};
 Object.keys(features).forEach(featureName => featureState[featureName] = false);
